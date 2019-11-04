@@ -10,3 +10,19 @@ supports standard types and performs founds checking during each call.
 
 Based on MemoryStream from .NET, https://docs.microsoft.com/en-us/dotnet/api/system.io.memorystream
 
+
+== Building
+
+```
+mkdir build
+cd build
+cmake ../
+make
+```
+
+== Running tests
+Perform the steps above to build
+
+```
+make test
+```
