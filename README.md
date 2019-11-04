@@ -6,7 +6,7 @@ supports standard types and performs founds checking during each call.
 == Features
 * Allocation free
 * Bounds checking
-
+* BSD licensed
 
 Based on MemoryStream from .NET, https://docs.microsoft.com/en-us/dotnet/api/system.io.memorystream
 
