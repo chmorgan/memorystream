@@ -1,9 +1,9 @@
-= MemoryStream
+# MemoryStream
 
 A lightweight C implementation of a memory backed stream. Designed for embedded system usage the library
 supports standard types and performs founds checking during each call.
 
-== Features
+## Features
 * Allocation free
 * Bounds checking
 * BSD licensed
@@ -11,7 +11,7 @@ supports standard types and performs founds checking during each call.
 Based on MemoryStream from .NET, https://docs.microsoft.com/en-us/dotnet/api/system.io.memorystream
 
 
-== Building
+## Building
 
 ```
 mkdir build
@@ -20,7 +20,7 @@ cmake ../
 make
 ```
 
-== Running tests
+## Running tests
 Perform the steps above to build
 
 ```
