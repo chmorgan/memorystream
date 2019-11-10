@@ -97,6 +97,32 @@ bool test_writing_bytes() {
     return true;
 }
 
+bool test_get_set_position() {
+    memorystream ms;
+    uint8_t data[64];
+
+    memorystream_init(&ms, data, sizeof(data));
+
+    auto startPosition = memorystream_getposition(&ms);
+    auto expectedPosition = 0;
+    if(startPosition != expectedPosition) {
+        printf("memorystream_getposition %d != expectedPosition %d\n", startPosition, expectedPosition);
+        return false;
+    }
+
+    // test setting the position
+    expectedPosition = 100;
+    memorystream_setposition(&ms, expectedPosition);
+
+    auto actualPosition = memorystream_getposition(&ms);
+    if(actualPosition != expectedPosition) {
+        printf("memorystream_getposition %d != expectedPosition %d after set position\n", actualPosition, expectedPosition);
+        return false;
+    }
+
+    return true;
+}
+
 int main() {
     int retval = 0;
     if(!test_writing_uint8()) {
@@ -113,6 +139,14 @@ int main() {
         printf("test_writing_bytes failed\n");
         retval = 1;
     }
+
+    if(!test_get_set_position()) {
+        printf("test_get_set_position failed\n");
+        retval = 1;
+    }
+
+    //TODO: test for getpointer
+    //TODO: tests for read16/readbytes
 
     return retval;
 }
