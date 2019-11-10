@@ -5,10 +5,8 @@ project(MemoryStream)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(FindValgrind)
-if(VALGRIND_FOUND)
-    message(STATUS "Appending ${VALGRIND_INCLUDE_DIR} for Valgrind headers")
-    include_directories(${VALGRIND_INCLUDE_DIR})
-    list(APPEND EXTERNAL_INCLUDE_DIRS ${VALGRIND_INCLUDE_DIR})
+if(DEFINED VALGRIND_PROGRAM)
+    message(STATUS "Found valgrind program")
 endif()
 
 # use c++11
@@ -23,6 +21,6 @@ add_executable(mstest test/test.cpp memorystream.c)
 
 add_test(mstest mstest)
 
-if(VALGRIND_FOUND)
+if(DEFINED VALGRIND_PROGRAM)
     add_test(mstest_valgrind valgrind --error-exitcode=1 --leak-check=full ./mstest)
 endif()
