@@ -29,6 +29,7 @@ bool memorystream_write8(memorystream *pMS, uint8_t val);
 bool memorystream_write16(memorystream *pMS, uint16_t val);
 bool memorystream_writebytes(memorystream *pMS, void* data, size_t len);
 
+bool memorystream_read8(memorystream *pMS, uint8_t *val);
 bool memorystream_read16(memorystream *pMS, uint16_t *val);
 bool memorystream_readbytes(memorystream *pMS, void* data, size_t len);
 
