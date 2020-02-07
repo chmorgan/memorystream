@@ -58,6 +58,17 @@ bool memorystream_writebytes(memorystream *pMS, void* data, size_t len) {
     return true;
 }
 
+bool memorystream_read8(memorystream *pMS, uint8_t *val) {
+    if(memorystream_bytesavailable(pMS) < sizeof(uint8_t)) {
+        return false;
+    }
+
+    *val = *((uint8_t*)pMS->pos);
+    pMS->pos += sizeof(uint8_t);
+
+    return true;
+}
+
 bool memorystream_read16(memorystream *pMS, uint16_t *val) {
     if(memorystream_bytesavailable(pMS) < sizeof(uint16_t)) {
         return false;
